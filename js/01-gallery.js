@@ -2,22 +2,19 @@ import { galleryItems } from './gallery-items.js';
 console.log(galleryItems);
 // Change code below this line
 const divGallery = document.querySelector(".gallery");
-const markup = galleryItems.map((galleryItem) => `<a class = "gallery__link" href = "${galleryItem.original}">
+const markup = galleryItems.map((galleryItem) => `<div class = "gallery__item"><a class = "gallery__link" href = "${galleryItem.original}">
 <img class = "gallery__image" src = "${galleryItem.preview}" data-source = "${galleryItem.original}" onclick = "return false"
-alt = "${galleryItem.description}"/></a>`).join("");
+alt = "${galleryItem.description}"/></a></div>`).join("");
 divGallery.insertAdjacentHTML("beforeend", markup);
 
-const galleryImage = document.querySelector(".gallery__image");
-const galleryLink = document.querySelectorAll(".gallery__link");
+const galleryItem = document.querySelectorAll(".gallery__item");
 
-galleryLink.forEach(function (element) {
-    element.onclick = (e) => {
+divGallery.onclick = (e) => {
        const instance = basicLightbox.create(`
-        <img src = "${element.href}">
+        <img width ="1400" height="900" src = "${e.target.dataset.source}">
         `).show()
         .instance.close()
     }
-})
 
 
 

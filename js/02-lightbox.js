@@ -9,7 +9,7 @@ const lightbox = new SimpleLightbox('.gallery a', {
     captionsData: "alt",
     captionType: "alt",
     captionPosition: "bottom",
-    captionFadein: 250
+    captionDelay: 250
 });
 
 console.log(galleryItems);
